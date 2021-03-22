@@ -1,0 +1,27 @@
+.nav {
+    grid-area: n;
+    background-color: #FFABA4;
+    padding: 20px;
+    box-shadow: 3px 3px dimgray;
+    border-radius: 5px ;
+}
+
+.item a{
+    color: azure;
+    text-decoration: none;
+}
+
+.item a.active{
+    color: dimgray;
+}
+
+.item {
+    padding: 5px;
+}
+
+.item:hover {
+    background: #FF7B74;
+    box-shadow: 2px 2px dimgray;
+    border-radius: 5px ;
+}
+

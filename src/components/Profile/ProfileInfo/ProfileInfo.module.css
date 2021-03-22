@@ -1,0 +1,9 @@
+.profileInfo {
+ padding: 20px;
+}
+
+.header_picture {
+    height: 150px;
+    width: 100%;
+    border-radius: 5px ;
+}

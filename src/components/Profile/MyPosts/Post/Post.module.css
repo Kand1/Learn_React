@@ -1,0 +1,47 @@
+
+.item {
+    display: grid;
+    grid-template-areas: "i m" "l l";
+    grid-template-rows: 1fr 25px;
+    grid-template-columns: 80px 1fr;
+    margin: 20px 0px 20px 0px;
+    background: #fffff0;
+    box-shadow: 3px 3px dimgray;
+    border-radius: 10px ;
+}
+
+.likesCount {
+    grid-area: c;
+}
+
+.likeText {
+    grid-area: t;
+    margin: 0 auto;
+}
+
+.likeButton {
+    grid-area: b;
+    margin: 0px 0px 10px 0px;
+}
+
+.postMessage {
+    grid-area: m;
+}
+
+.postImage {
+    width: 60px;
+    height: 60px;
+    grid-area: i;
+    margin: 10px;
+    border-radius: 15px ;
+    box-shadow: 3px 3px dimgray;
+}
+
+.like {
+    display: grid;
+    grid-area: l;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "b t c";
+    margin: 0 auto;
+}
+

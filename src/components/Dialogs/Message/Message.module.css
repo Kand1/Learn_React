@@ -1,0 +1,46 @@
+
+.userBorderAlign {
+    display: grid;
+    grid-template-areas: "none l";
+    grid-template-columns:  1fr 150px;
+
+}
+
+.friendBorderAlign {
+    display: grid;
+    grid-template-areas: "b none";
+    grid-template-columns:  150px 1fr;
+}
+
+.userBorder {
+    padding: 5px;
+    background: #fffff0;
+    width: 200px;
+    margin: 20px 0px 20px 0px;
+    box-shadow: 3px 3px dimgray;
+    border-radius: 5px ;
+    grid-area: b;
+}
+
+.friendBorder {
+    padding: 5px;
+    background: #fffff0;
+    width: 200px;
+    margin: 20px 0px 20px 0px;
+    box-shadow: 3px 3px dimgray;
+    border-radius: 5px ;
+    grid-area: b;
+}
+
+.user {
+    text-align: left;
+    margin: 5px 0px 5px 0px;
+
+}
+
+.friend {
+    text-align: left;
+    margin: 5px 0px 5px 0px;
+
+}
+
