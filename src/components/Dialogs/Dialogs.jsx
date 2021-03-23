@@ -6,7 +6,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 const Messages = (props) => {
-    props.changeId(props.m.id);
+    props.dispatch({type: "CHANGE-ID", id: props.m.id});
     return <div>
         {props.m.mess}
     </div>
@@ -14,10 +14,6 @@ const Messages = (props) => {
 
 const Dialogs = (props) => {
     let newMessageEl = React.createRef();
-
-    let addMessageButtonClick = () => {
-        props.func.addMessage();
-    }
 
     let dialogsElements = props.page.dialogsData
         .map(dialog => <DialogItem id = {dialog.id} name ={dialog.name}/>)
@@ -29,15 +25,19 @@ const Dialogs = (props) => {
         }})
 
 
+    let addMessageButtonClick = () => {
+        props.dispatch({type: "ADD-MESSAGE"});
+    }
+
     let Router = allDialogs
         .map(m => <Route path={'/dialogs/' + m.id}  render={() =>
             <Messages
-                changeId = {props.func.changeId}
+                dispatch = {props.dispatch}
                 m = {m}/>}/>)
 
     let onMessageChange = () => {
         let text = newMessageEl.current.value;
-        props.func.updateMessageTextArea(text);
+        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", postMessage: text});
     }
 
     return (

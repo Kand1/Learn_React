@@ -1,7 +1,8 @@
-    let rerenderEntireTree = () => {
-        console.log('change');
-    }
+
 let store = {
+    getState() {
+        return store._state;
+    },
     _state: {
         dialogsPage: {
             messagesData: [
@@ -55,26 +56,28 @@ let store = {
             ]
         }
     },
+    /*
     profilePageFunc: {
-        addPost: () => {
+
+        addPost() {
             let newPost = {
                 message: store._state.profilePage.newPostText,
                 likes: '0'
             };
             store._state.profilePage.postsData.push(newPost);
             store._state.profilePage.newPostText = '';
-            rerenderEntireTree();
+            store._callSubscriber();
         },
-        updatePostTextArea: (postMessage) => {
+        updatePostTextArea(postMessage) {
             store._state.profilePage.newPostText = postMessage;
-            rerenderEntireTree();
+            store._callSubscriber();
         },
     },
     dialogsPageFunc: {
-        changeId: (id) => {
+        changeId(id) {
             store._state.dialogsPage.newMessageId = id;
         },
-        addMessage: () => {
+        addMessage() {
             let newMess = {
                 text: store._state.dialogsPage.newMessageText,
                 sender: 'user'
@@ -82,18 +85,47 @@ let store = {
             store._state.dialogsPage.messagesData[store._state.dialogsPage.newMessageId].messages.push(newMess);
             store._state.dialogsPage.newMessageText = '';
             store._state.dialogsPage.newMessageId = '0';
-            rerenderEntireTree();
+            store._callSubscriber();
         },
-        updateMessageTextArea: (postMessage) => {
+        updateMessageTextArea(postMessage) {
             store._state.dialogsPage.newMessageText = postMessage;
-            rerenderEntireTree();
+            store._callSubscriber();
         }
     },
-    rerenderEntireTree: () => {
+    */
+    _callSubscriber() {
         console.log('change');
     },
-    subscribe: (observer) => {
-        rerenderEntireTree = observer;
+    subscribe(observer) {
+        store._callSubscriber = observer;
+    },
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                message: this._state.profilePage.newPostText,
+                likes: '0'
+            };
+            this._state.profilePage.postsData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber();
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.postMessage;
+            this._callSubscriber();
+        } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+            this._state.dialogsPage.newMessageText = action.postMessage;
+            this._callSubscriber();
+        } else if (action.type === "ADD-MESSAGE") {
+            let newMess = {
+                text: this._state.dialogsPage.newMessageText,
+                sender: 'user'
+            };
+            this._state.dialogsPage.messagesData[this._state.dialogsPage.newMessageId].messages.push(newMess);
+            this._state.dialogsPage.newMessageText = '';
+            this._state.dialogsPage.newMessageId = '0';
+            this._callSubscriber();
+        } else if (action.type === "CHANGE-ID") {
+            this._state.dialogsPage.newMessageId = action.id;
+        }
     }
 }
     export default store;

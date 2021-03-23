@@ -19,15 +19,15 @@ function App(props) {
                 <Nav/>
                 <div className='app-wrap-content'>
                     <Route path='/dialogs' render={() => <Dialogs
-                            page = {props.store._state.dialogsPage}
-                            func = {props.store.dialogsPageFunc}/>
+                            page = {props.state.dialogsPage}
+                            dispatch = {props.dispatch}/>
                     } />
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/profile' render={() => <Profile
-                        page = {props.store._state.profilePage}
-                        func = {props.store.profilePageFunc}
+                        page = {props.state.profilePage}
+                        dispatch = {props.dispatch}
                     />}/>
                 </div>
             </div>
