@@ -1,7 +1,7 @@
-import s from './Nav.module.css';
+import s from './Sidebar.module.css';
 import {NavLink} from "react-router-dom";
 
-const Nav = () => {
+const Sidebar = () => {
     return <nav className= {s.nav}>
         <div className = {s.item}>
             <NavLink to='/profile' activeClassName = {s.active}>Profile</NavLink>
@@ -21,4 +21,4 @@ const Nav = () => {
     </nav>
 }
 
-export default Nav;
+export default Sidebar;

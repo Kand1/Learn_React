@@ -2,7 +2,7 @@
 import './App.css';
 
 import Header from './components/Header/Header'
-import Nav from './components/Nav/Nav'
+import Sidebar from './components/Sidebar/Sidebar'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import News from './components/News/News'
@@ -12,11 +12,12 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 function App(props) {
+
     return (
         <BrowserRouter>
             <div className='app-wrap'>
                 <Header/>
-                <Nav/>
+                <Sidebar/>
                 <div className='app-wrap-content'>
                     <Route path='/dialogs' render={() => <Dialogs
                             page = {props.state.dialogsPage}

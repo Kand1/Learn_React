@@ -1,6 +1,7 @@
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import React from "react";
+import {addPostActionCreate, updateNewPostTextActionCreate} from "../../../redux/ProfileReducer";
 
 const MyPosts = (props) => {
 
@@ -10,12 +11,12 @@ const MyPosts = (props) => {
     let newPostEl = React.createRef();
 
     let addPostButtonClick = () => {
-        props.dispatch({type: "ADD-POST"});
+        props.dispatch(addPostActionCreate());
     }
 
     let onPostChange = () => {
         let text = newPostEl.current.value;
-        props.dispatch({type: "UPDATE-NEW-POST-TEXT", postMessage: text});
+        props.dispatch(updateNewPostTextActionCreate(text));
     }
     return <div className={s.myPostsContent}>
             <h2>My posts</h2>
