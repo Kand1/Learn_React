@@ -11,13 +11,14 @@ const MyPosts = (props) => {
     let newPostEl = React.createRef();
 
     let addPostButtonClick = () => {
-        props.dispatch(addPostActionCreate());
+        props.addPost();
     }
 
     let onPostChange = () => {
         let text = newPostEl.current.value;
-        props.dispatch(updateNewPostTextActionCreate(text));
+        props.updateNewPostText(text);
     }
+
     return <div className={s.myPostsContent}>
             <h2>My posts</h2>
             <div className={s.item}>

@@ -1,13 +1,8 @@
 import s from './Dialogs.module.css';
-import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
-import {
-    addMessageActionCreate,
-    changeIdActionCreate,
-    updateNewMessageTextActionCreate,
-} from "../../redux/DialogsReducer";
+import {Route} from "react-router-dom";
+
 
 
 const Messages = (props) => {
@@ -23,31 +18,27 @@ const Messages = (props) => {
 const Dialogs = (props) => {
     let newMessageEl = React.createRef();
 
-    let dialogsElements = props.page.dialogsData
-        .map(dialog => <DialogItem dispatch = {props.dispatch} id = {dialog.id} name ={dialog.name}/>)
-
 
     let addMessageButtonClick = () => {
-        props.dispatch(addMessageActionCreate());
+        props.addMessage();
     }
 
     let Router = props.page.dialogsData
         .map(m => <Route path={'/dialogs/' + m.id}  render={() =>
             <Messages
-                dispatch = {props.dispatch}
                 data = {props.page.messagesData[m.id]}/>}/>)
 
 
     let onMessageChange = () => {
         let text = newMessageEl.current.value;
-        props.dispatch(updateNewMessageTextActionCreate(text));
+        props.updateNewMessageText(text);
     }
 
     return (
 
             <div className={s.dialogs}>
                 <div className={s.dialogsItems}>
-                    { dialogsElements }
+                    { props.dialogsElements }
                 </div>
                 <hr className={s.line1}></hr>
                 <div className={s.messages}>

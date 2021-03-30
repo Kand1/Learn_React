@@ -6,7 +6,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import News from './components/News/News'
-import Dialogs from './components/Dialogs/Dialogs'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
 import Profile from './components/Profile/Profile'
 import {BrowserRouter, Route} from "react-router-dom";
 
@@ -19,16 +19,14 @@ function App(props) {
                 <Header/>
                 <Sidebar/>
                 <div className='app-wrap-content'>
-                    <Route path='/dialogs' render={() => <Dialogs
-                            page = {props.state.dialogsPage}
-                            dispatch = {props.dispatch}/>
+                    <Route path='/dialogs' render={() => <DialogsContainer
+                        store = {props.store}/>
                     } />
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/profile' render={() => <Profile
-                        page = {props.state.profilePage}
-                        dispatch = {props.dispatch}
+                        store = {props.store}
                     />}/>
                 </div>
             </div>
