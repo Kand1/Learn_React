@@ -9,6 +9,7 @@ import News from './components/News/News'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import Profile from './components/Profile/Profile'
 import {BrowserRouter, Route} from "react-router-dom";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 function App(props) {
@@ -19,15 +20,12 @@ function App(props) {
                 <Header/>
                 <Sidebar/>
                 <div className='app-wrap-content'>
-                    <Route path='/dialogs' render={() => <DialogsContainer
-                        store = {props.store}/>
-                    } />
+                    <Route path='/profile' render={() => <Profile/>}/>
+                    <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
-                    <Route path='/profile' render={() => <Profile
-                        store = {props.store}
-                    />}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
                 </div>
             </div>
         </BrowserRouter>

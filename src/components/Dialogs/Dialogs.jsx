@@ -2,6 +2,7 @@ import s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import React from "react";
 import {Route} from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
 
 
 
@@ -18,6 +19,8 @@ const Messages = (props) => {
 const Dialogs = (props) => {
     let newMessageEl = React.createRef();
 
+    let dialogsElements = props.page.dialogsData
+        .map(dialog => <DialogItem changeId = {props.changeId} id = {dialog.id} name ={dialog.name}/>)
 
     let addMessageButtonClick = () => {
         props.addMessage();
@@ -38,7 +41,7 @@ const Dialogs = (props) => {
 
             <div className={s.dialogs}>
                 <div className={s.dialogsItems}>
-                    { props.dialogsElements }
+                    { dialogsElements }
                 </div>
                 <hr className={s.line1}></hr>
                 <div className={s.messages}>
