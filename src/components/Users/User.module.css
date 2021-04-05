@@ -1,3 +1,21 @@
 .avatar {
+    width: 150px;
     height: 150px;
+    grid-area: i;
+    margin: 10px;
+    border-radius: 15px ;
+    box-shadow: 3px 3px dimgray;
+}
+
+.selectedPage {
+    font-weight: bold;
+    padding: 5px;
+    background: #fffff0;
+    width: 200px;
+    box-shadow: 3px 3px dimgray;
+    border-radius: 5px ;
+}
+
+span {
+    margin: 5px;
 }

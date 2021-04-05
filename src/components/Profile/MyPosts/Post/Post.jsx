@@ -1,8 +1,9 @@
 import s from './Post.module.css';
+import avatar from '../../../../assets/images/default_avatar.jpg'
 
 const Post = (props) => {
     return <div className={s.item}>
-        <img className={s.postImage} src = 'https://cs5.pikabu.ru/post_img/big/2014/05/24/7/1400926434_1123623576.jpg'></img>
+        <img className={s.postImage} src = {avatar}></img>
         <div className={s.postMessage}>
             {props.message}
         </div>
