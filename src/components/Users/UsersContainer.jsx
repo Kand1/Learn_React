@@ -3,19 +3,22 @@ import {connect} from "react-redux";
 import axios from "axios";
 import Users from "./Users";
 import {
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    toggleSubAC,
+    setCurrentPage, setPageSize,
+    setTotalUsersCount,
+    setUsers, toggleIsFetching,
+    toggleSub,
 
 } from "../../redux/UsersReducer";
+import Preloader from "../common/Preloader/Preloader";
 
 
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
+        this.props.toggleIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
+                this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items)
                 this.props.setTotalUsersCount(response.data.totalCount)
             })
@@ -24,22 +27,45 @@ class UsersAPIComponent extends React.Component {
 
     }
 
-    onPageChange = (pageNumber) => {
+    onPageChange = (pageNumber, pageSize) => {
+
+
         this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-            .then(response => {this.props.setUsers(response.data.items)
+        this.props.toggleIsFetching(true)
+
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+            .then(response => {
+                this.props.toggleIsFetching(false)
+                this.props.setUsers(response.data.items)
+            })
+    }
+
+    onPageSizeChange = (current, pageSize) => {
+        this.props.setPageSize(pageSize)
+        this.props.toggleIsFetching(true)
+
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${current}&count=${pageSize}`)
+            .then(response => {
+                this.props.toggleIsFetching(false)
+                this.props.setUsers(response.data.items)
+
             })
     }
 
     render() {
-        return <Users
+        return <>
+            {this.props.isFetching ? <Preloader /> :
+            <Users
             totalUsersCount = {this.props.totalUsersCount}
             pageSize = {this.props.pageSize}
             currentPage = {this.props.currentPage}
             onPageChange = {this.onPageChange}
             users = {this.props.users}
             toggleSub = {this.props.toggleSub}
-        />
+            onPageSizeChange = {this.onPageSizeChange}
+
+        />}
+        </>
     }
 }
 
@@ -49,20 +75,20 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        toggleSub: (userid) => {dispatch(toggleSubAC(userid))},
-        setUsers: (users) => {dispatch(setUsersAC(users))},
-        setCurrentPage: (curP) => {dispatch(setCurrentPageAC(curP))},
-        setTotalUsersCount: (totalC) => {dispatch(setTotalUsersCountAC(totalC))}
-    }
-}
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+const UsersContainer = connect(mapStateToProps, {
+    toggleSub,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    setPageSize,
+    toggleIsFetching
+})(UsersAPIComponent);
 
 
 export default UsersContainer;

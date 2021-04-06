@@ -1,6 +1,9 @@
 import s from "./User.module.css";
 import avatar from "../../assets/images/default_avatar.jpg";
 import React from "react";
+import {Pagination} from "antd";
+import 'antd/dist/antd.css';
+import {setPageSizeAC} from "../../redux/UsersReducer";
 
 let Users = (props) => {
 
@@ -16,12 +19,13 @@ let Users = (props) => {
 
     return <div>
         <div>
-            {pages.map(p => {
-                    return <span onClick={(e) => {
-                        props.onPageChange(p)
-                    }} className={props.currentPage === p && s.selectedPage}>{p}</span>
-                }
-            )}
+            <Pagination
+                defaultCurrent={props.currentPage}
+                defaultPageSize={props.pageSize}
+                total={props.totalUsersCount}
+                onShowSizeChange = {(current, pageSize) => {props.onPageSizeChange(current, pageSize)}}
+                onChange = {(page, pageSize) => {props.onPageChange(page, pageSize)}}
+            />
         </div>
         {props.users.map(
             u => {

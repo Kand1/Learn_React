@@ -3,9 +3,9 @@
   width: 1200px;
   margin: 0 auto;
   grid-template-areas: "h h" "n p";
-    grid-template-rows: 150px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
+  grid-template-rows: 150px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
   font-family: "ＭＳ Ｐゴシック";
   font-weight: bolder;
 

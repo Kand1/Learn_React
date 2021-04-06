@@ -2,19 +2,24 @@ const TOGGLE_SUB = "TOGGLE-SUB"
 const SET_USERS = "SET-USERS"
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
 const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT"
+const SET_PAGE_SIZE = "SET-PAGE-SIZE"
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING"
 
 
-export const toggleSubAC = (id) => ({type: TOGGLE_SUB, userid: id})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (curP) => ({type: SET_CURRENT_PAGE, curP})
-export const setTotalUsersCountAC = (totalC) => ({type: SET_TOTAL_USERS_COUNT, totalC})
+export const toggleSub = (id) => ({type: TOGGLE_SUB, userid: id})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (curP) => ({type: SET_CURRENT_PAGE, curP})
+export const setTotalUsersCount = (totalC) => ({type: SET_TOTAL_USERS_COUNT, totalC})
+export const setPageSize = (pageS) => ({type: SET_PAGE_SIZE, pageS})
 
 
 let initialState = {
     users: [],
-    pageSize: 6,
+    pageSize: 10,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 };
 
 export const UsersReducer = (state = initialState, action) => {
@@ -45,6 +50,20 @@ export const UsersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 totalUsersCount: action.totalC
+            }
+        }
+        case SET_PAGE_SIZE: {
+
+            return {
+                ...state,
+                pageSize: action.pageS
+            }
+        }
+        case TOGGLE_IS_FETCHING: {
+
+            return {
+                ...state,
+                isFetching: action.isFetching
             }
         }
         default:
