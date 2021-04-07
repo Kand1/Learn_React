@@ -88,7 +88,7 @@ const UsersContainer = connect(mapStateToProps, {
     setTotalUsersCount,
     setPageSize,
     toggleIsFetching
-})(UsersAPIComponent);
+})(UsersAPIComponent)
 
 
-export default UsersContainer;
+export default UsersContainer

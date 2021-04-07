@@ -1,7 +1,7 @@
 import s from './Sidebar.module.css';
 import {NavLink} from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return <nav className= {s.nav}>
         <div className = {s.item}>
             <NavLink to='/profile' activeClassName = {s.active}>Profile</NavLink>
@@ -20,6 +20,10 @@ const Sidebar = () => {
         </div>
         <div className = {s.item}>
             <NavLink to='/settings' activeClassName = {s.active}>Settings</NavLink>
+        </div>
+
+        <div className = {s.itemMarg + ' ' + s.item}>
+            {props.isAuth ? <NavLink onClick = {() => {props.setProfilePageUserId(props.userId)}} to = {'/profile/' + props.userId}>{props.login}</NavLink> : <NavLink to = '/login'>Login</NavLink>}
         </div>
     </nav>
 }

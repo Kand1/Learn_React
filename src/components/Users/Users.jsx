@@ -3,7 +3,7 @@ import avatar from "../../assets/images/default_avatar.jpg";
 import React from "react";
 import {Pagination} from "antd";
 import 'antd/dist/antd.css';
-import {setPageSizeAC} from "../../redux/UsersReducer";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
 
@@ -17,7 +17,7 @@ let Users = (props) => {
 
     pages.push(pagesCount);
 
-    return <div>
+    return (<div>
         <div>
             <Pagination
                 defaultCurrent={props.currentPage}
@@ -31,8 +31,12 @@ let Users = (props) => {
             u => {
                 return (<div key={u.id}>
             <span>
-            <div> <img className={s.avatar}
-                       src={u.photos.small != null ? u.photos.small : avatar}/> </div>
+            <div>
+                <NavLink to = {'/profile/' + u.id}>
+                <img className={s.avatar}
+                       src={u.photos.small != null ? u.photos.small : avatar}/>
+                </NavLink>
+            </div>
             <div>
         {u.followed ? <button onClick={() => {
                 props.toggleSub(u.id)
@@ -56,6 +60,6 @@ let Users = (props) => {
             }
         )}
     </div>
-}
+)}
 
 export default Users
