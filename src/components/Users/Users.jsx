@@ -4,6 +4,7 @@ import React from "react";
 import {Pagination} from "antd";
 import 'antd/dist/antd.css';
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 let Users = (props) => {
 
@@ -39,10 +40,35 @@ let Users = (props) => {
             </div>
             <div>
         {u.followed ? <button onClick={() => {
-                props.toggleSub(u.id)
+
+                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                    withCredentials: true,
+                    headers: {
+                        "API-KEY": "5213b37b-9601-4484-a040-81267f14f268"
+                    }
+                })
+                    .then(response => {
+
+                        if (response.data.resultCode === 0) {
+                            props.toggleSub(u.id)
+                        }
+                    })
+
             }}>Unfollow</button>
             : <button onClick={() => {
-                props.toggleSub(u.id)
+
+                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, { }, {
+                    withCredentials: true,
+                    headers: {
+                        "API-KEY": "5213b37b-9601-4484-a040-81267f14f268"
+                    }
+                })
+                    .then(response => {
+                    if (response.data.resultCode === 0) {
+                        props.toggleSub(u.id)
+                    }
+                    })
+
             }}>Follow</button>}
             </div>
             </span>
