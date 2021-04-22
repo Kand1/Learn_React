@@ -18,8 +18,8 @@ function App(props) {
     return (
         <BrowserRouter>
             <div className='app-wrap'>
-                <Header/>
                 <SidebarContainer/>
+                <Header/>
                 <div className='app-wrap-content'>
                     <Route path='/profile/:userid?' render={() => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
