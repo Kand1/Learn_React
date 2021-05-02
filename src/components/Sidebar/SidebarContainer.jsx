@@ -2,22 +2,17 @@ import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import Sidebar from "./Sidebar";
-import {setAuthUserData} from "../../redux/AuthReducer";
+import {authUser, setAuthUserData} from "../../redux/AuthReducer";
 import {setProfilePageUserId} from "../../redux/ProfileReducer";
 import {authAPI} from "../../api/api";
+import {compose} from "redux";
 
 
 
-class SidebarAPIContainer extends React.Component{
+class SidebarContainer extends React.Component{
 
     componentDidMount() {
-        authAPI.auth()
-            .then(data => {
-                if (data.resultCode === 0) {
-
-                    this.props.setAuthUserData(data.data)
-                }
-            })
+        this.props.authUser()
     }
 
     render () {
@@ -33,6 +28,6 @@ let mapStateToProps = (state) => ({
 })
 
 
-const SidebarContainer = connect(mapStateToProps, {setAuthUserData, setProfilePageUserId})(SidebarAPIContainer)
-
-export default SidebarContainer
+export default compose(
+    connect(mapStateToProps, {authUser, setAuthUserData, setProfilePageUserId})
+)(SidebarContainer)

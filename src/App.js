@@ -11,6 +11,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
+import Login from "./components/Login/Login";
 
 
 function App(props) {
@@ -27,6 +28,7 @@ function App(props) {
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/login' render={() => <Login/>}/>
                 </div>
             </div>
         </BrowserRouter>

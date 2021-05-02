@@ -1,23 +1,21 @@
 import Profile from "./Profile";
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import {setProfilePageUserId, setUserProfile} from "../../redux/ProfileReducer";
+import {getProfile, getStatus, setProfilePageUserId, setUserProfile, updateStatus} from "../../redux/ProfileReducer";
 import {withRouter} from "react-router";
-import {profileAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
-class ProfileAPIComponent extends React.Component{
+class ProfileContainer extends React.Component{
 
     componentDidMount() {
         let userID = this.props.match.params.userid
         if (!userID) {
             userID = this.props.authUserId
         }
-        profileAPI.getProfile(userID)
-            .then(data => {
-                this.props.setUserProfile(data)
-            })
+        this.props.getProfile(userID)
+        this.props.getStatus(userID)
 
     }
 
@@ -28,19 +26,25 @@ class ProfileAPIComponent extends React.Component{
                 userID = this.props.authUserId
             }
 
-            profileAPI.getProfile(userID)
-                .then(data => {
-                    this.props.setUserProfile(data)
-                })
+            this.props.getProfile(userID)
+            this.props.getStatus(userID)
+        }
+        if (prevProps.status != this.props.status)
+        {
+            this.setState({
+                status: this.props.status
+            })
         }
     }
 
 
 
     render () {
-
         this.props.setProfilePageUserId(this.props.match.params.userid)
-        return (<Profile {...this.props} profile = {this.props.profile} />)
+        return (<Profile {...this.props}
+                         status = {this.props.status}
+                         updateStatus = {this.props.updateStatus}
+                         profile = {this.props.profile} />)
 
     }
 }
@@ -48,11 +52,17 @@ class ProfileAPIComponent extends React.Component{
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     authUserId: state.auth.id,
-    profilePageUserId: state.profilePage.profilePageUserId
+    profilePageUserId: state.profilePage.profilePageUserId,
+    status: state.profilePage.status
 })
 
-const WithUrlDataContainerComponent = withRouter(ProfileAPIComponent)
-
-const ProfileContainer = connect(mapStateToProps, {setUserProfile, setProfilePageUserId})(WithUrlDataContainerComponent)
-
-export default ProfileContainer
+export default compose(
+    connect(mapStateToProps, {
+        setUserProfile,
+        setProfilePageUserId,
+        getProfile,
+        getStatus,
+        updateStatus}),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer)

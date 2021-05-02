@@ -3,6 +3,7 @@ import Message from "./Message/Message";
 import React from "react";
 import {Route} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
+import { Redirect } from 'react-router';
 
 
 
@@ -36,6 +37,9 @@ const Dialogs = (props) => {
         let text = newMessageEl.current.value;
         props.updateNewMessageText(text);
     }
+
+
+
 
     return (
 

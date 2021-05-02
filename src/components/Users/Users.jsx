@@ -5,8 +5,12 @@ import {Pagination} from "antd";
 import 'antd/dist/antd.css';
 import {NavLink} from "react-router-dom";
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 let Users = (props) => {
+
+    if (props.isAuth == false)
+        return <Redirect to={"/login"}/>
 
     let pagesCount = Math.ceil( props.totalUsersCount / props.pageSize )
 
@@ -41,26 +45,15 @@ let Users = (props) => {
             <div>
         {u.followed ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
 
-                props.toggleFollowingProgress(true, u.id)
-                props.unfollowUser(u.id)
-                    .then(data => {
 
-                        if (data.resultCode === 0) {
-                            props.toggleSub(u.id)
-                            props.toggleFollowingProgress(false, u.id)
-                        }
-                    })
+                props.unfollow(u.id)
+
 
             }}>Unfollow</button>
             : <button disabled={props.followingProgress.some(id => id === u.id)}   onClick={() => {
-                props.toggleFollowingProgress(true, u.id)
-                props.followUser(u.id)
-                    .then(data => {
-                    if (data.resultCode === 0) {
-                        props.toggleSub(u.id)
-                        props.toggleFollowingProgress(false, u.id)
-                    }
-                    })
+
+                props.follow(u.id)
+
 
             }}>Follow</button>}
             </div>
