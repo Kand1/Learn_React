@@ -12,6 +12,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import Login from "./components/Login/Login";
+import LoginContainer from "./components/Login/LoginContainer";
 
 
 function App(props) {
@@ -28,7 +29,7 @@ function App(props) {
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
-                    <Route path='/login' render={() => <Login/>}/>
+                    <Route path='/login' render={() => <LoginContainer/>}/>
                 </div>
             </div>
         </BrowserRouter>

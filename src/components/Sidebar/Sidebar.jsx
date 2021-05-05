@@ -23,7 +23,10 @@ const Sidebar = (props) => {
         </div>
 
         <div className = {s.itemMarg + ' ' + s.item}>
-            {props.isAuth ? <NavLink onClick = {() => {props.setProfilePageUserId(props.userId)}} to = {'/profile/' + props.userId}>{props.login}</NavLink> : <NavLink to = '/login'>Login</NavLink>}
+            {props.isAuth ? <NavLink  to = {'/profile/' + props.userId}>{props.login}</NavLink> : <NavLink to = '/login'>Login</NavLink>}
+        </div>
+        <div className = {s.item}>
+            {props.isAuth ? <a onClick = {props.logout}>Log out</a> : <div> </div>}
         </div>
     </nav>
 }

@@ -2,8 +2,7 @@ const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const CHANGE_ID = "CHANGE-ID";
 
-export const addMessageActionCreate = () => ({type: "ADD-MESSAGE"});
-export const updateNewMessageTextActionCreate = (text) => ({type: "UPDATE-NEW-MESSAGE-TEXT", postMessage: text});
+export const addMessageActionCreate = (text) => ({type: "ADD-MESSAGE", text});
 export const changeIdActionCreate = (id2) => ({type: "CHANGE-ID", id: id2});
 
 let initialState = {
@@ -65,14 +64,10 @@ const DialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
             let newMess = {
-                text: state.newMessageText,
+                text: action.text,
                 sender: 'user'
             };
             stateCopy.messagesData[stateCopy.newMessageId].messages.push(newMess);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            stateCopy.newMessageText = action.postMessage;
             return stateCopy;
         case CHANGE_ID:
             stateCopy.newMessageId = action.id;

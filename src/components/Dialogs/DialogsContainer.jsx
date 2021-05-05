@@ -20,9 +20,9 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageText:(text) => {dispatch(updateNewMessageTextActionCreate(text));},
-        addMessage: () => {dispatch(addMessageActionCreate());},
-        changeId: (id2) => {dispatch(changeIdActionCreate(id2));}
+
+        addMessage: (text) => {dispatch(addMessageActionCreate(text));},
+        changeId: (id) => {dispatch(changeIdActionCreate(id));}
     }
 }
 
