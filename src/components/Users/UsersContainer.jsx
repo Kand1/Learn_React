@@ -76,5 +76,5 @@ export default compose(
         follow,
         unfollow
     }),
-    withAuthRedirect
+
 )(UsersContainer)

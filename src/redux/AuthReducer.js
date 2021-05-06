@@ -1,5 +1,6 @@
 import {authAPI, usersAPI} from "../api/api";
 import {toggleFollowingProgress, toggleSub} from "./UsersReducer";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = "SET-USER-DARA";
 const DELETE_USER_DATA = "DELETE-USER-DATA"
@@ -11,7 +12,7 @@ export const deleteAuthUserData = () => ({type: DELETE_USER_DATA})
 
 export const authUser = () => (dispatch) => {
 
-    authAPI.auth()
+    return authAPI.auth()
         .then(data => {
             if (data.resultCode === 0) {
 
@@ -27,6 +28,10 @@ export const loginUser = (email, password, rememberMe) => (dispatch) => {
         .then(data => {
             if (data.resultCode === 0) {
                 dispatch(authUser())
+            }
+            else {
+                let err = data.messages.length > 0 ? data.messages[0] : "Undefined error"
+                dispatch(stopSubmit("login", {_error: err}))
             }
         })
 }

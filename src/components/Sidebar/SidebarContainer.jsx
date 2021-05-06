@@ -11,10 +11,6 @@ import {compose} from "redux";
 
 class SidebarContainer extends React.Component{
 
-    componentDidMount() {
-        this.props.authUser()
-    }
-
     render () {
         return (<Sidebar {...this.props} logout = {this.sendLogout}/>)
 
