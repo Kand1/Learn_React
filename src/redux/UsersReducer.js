@@ -16,7 +16,7 @@ export const setCurrentPage = (curP) => ({type: SET_CURRENT_PAGE, curP})
 export const setTotalUsersCount = (totalC) => ({type: SET_TOTAL_USERS_COUNT, totalC})
 export const setPageSize = (pageS) => ({type: SET_PAGE_SIZE, pageS})
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const requestUsers = (currentPage, pageSize) => (dispatch) => {
 
     dispatch(toggleIsFetching(true))
 

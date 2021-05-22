@@ -4,6 +4,7 @@ import avatar from "../../../assets/images/default_avatar.jpg";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import React from "react";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
 
@@ -28,7 +29,7 @@ const ProfileInfo = (props) => {
             <img className={s.ava} src={props.profile.photos.large != null ? props.profile.photos.large : avatar}/>
         </div>
         <div>
-            <ProfileStatus
+            <ProfileStatusWithHooks
                 updateStatus = {props.updateStatus}
                 status ={props.status}/>
             About me: {props.profile.aboutMe}

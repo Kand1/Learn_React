@@ -6,7 +6,7 @@ class ProfileStatus extends React.Component {
         status: this.props.status
     }
 
-    statusInput = React.createRef()
+
 
     activateEditMode = () =>{
         this.setState({
