@@ -6,6 +6,7 @@ import 'antd/dist/antd.css';
 import {NavLink} from "react-router-dom";
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import {followingStatusChange} from "../../redux/UsersReducer";
 
 let Users = (props) => {
 
@@ -46,13 +47,13 @@ let Users = (props) => {
         {u.followed ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
 
 
-                props.unfollow(u.id)
+                props.followingStatusChange(u.id, false)
 
 
             }}>Unfollow</button>
             : <button disabled={props.followingProgress.some(id => id === u.id)}   onClick={() => {
 
-                props.follow(u.id)
+                props.followingStatusChange(u.id, true)
 
 
             }}>Follow</button>}

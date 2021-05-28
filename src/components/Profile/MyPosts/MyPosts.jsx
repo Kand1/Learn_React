@@ -7,10 +7,10 @@ import {Textarea} from "../../common/FormsContent/FormsContent";
 
 const maxLength = maxLengthCreator(10)
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
 
     let postsElements = props.page.postsData
-        .map(p => <Post message={p.message} likes = {p.likes} />)
+        .map(p => <Post message={p.message} likes={p.likes}/>)
 
 
     let addPost = (formData) => {
@@ -18,13 +18,13 @@ const MyPosts = (props) => {
     }
 
     return <div className={s.myPostsContent}>
-            <h2>My posts</h2>
-        <ReduxAddPostForm className = {s.item} onSubmit = {addPost}/>
-            <div className={s.posts}>
-                { postsElements }
-            </div>
+        <h2>My posts</h2>
+        <ReduxAddPostForm className={s.item} onSubmit={addPost}/>
+        <div className={s.posts}>
+            {postsElements}
         </div>
-}
+    </div>
+})
 
 
 const AddPostForm = (props) => {

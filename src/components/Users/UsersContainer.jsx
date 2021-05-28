@@ -6,7 +6,7 @@ import { Redirect } from 'react-router';
 import {
     follow,
     requestUsers,
-    setCurrentPage, setPageSize,
+    setCurrentPage, setPageSize, followingStatusChange,
     toggleFollowingProgress,
     toggleSub, unfollow,
 
@@ -56,24 +56,14 @@ class UsersContainer extends React.Component {
             unfollowUser = {usersAPI.unfollowUser}
             followUser = {usersAPI.followUser}
             followingProgress = {this.props.followingProgress}
-            follow = {this.props.follow}
-            unfollow = {this.props.unfollow}
+            followingStatusChange = {this.props.followingStatusChange}
 
         />}
         </>
     }
 }
 
-// let mapStateToProps = (state) => {
-//     return {
-//         users: state.usersPage.users,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         followingProgress: state.usersPage.followingProgress,
-//     }
-// }
+
 let mapStateToProps = (state) => {
     return {
         users: getUsers(state),
@@ -90,8 +80,8 @@ export default compose(
         setCurrentPage,
         setPageSize,
         getUsers: requestUsers,
-        follow,
-        unfollow
+        followingStatusChange,
+
     }),
 
 )(UsersContainer)

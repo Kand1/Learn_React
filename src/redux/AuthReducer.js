@@ -2,30 +2,26 @@ import {authAPI, usersAPI} from "../api/api";
 import {toggleFollowingProgress, toggleSub} from "./UsersReducer";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = "SET-USER-DARA";
-const DELETE_USER_DATA = "DELETE-USER-DATA"
+const SET_USER_DATA = "auth/SET-USER-DARA";
+const DELETE_USER_DATA = "auth/DELETE-USER-DATA"
 
 export const setAuthUserData = (data) => ({type: SET_USER_DATA, data})
 export const deleteAuthUserData = () => ({type: DELETE_USER_DATA})
 
 
 
-export const authUser = () => (dispatch) => {
+export const authUser = () => async (dispatch) => {
 
-    return authAPI.auth()
-        .then(data => {
+    let data = await authAPI.auth()
             if (data.resultCode === 0) {
-
                 dispatch(setAuthUserData(data.data))
             }
-        })
 
 }
 
-export const loginUser = (email, password, rememberMe) => (dispatch) => {
+export const loginUser = (email, password, rememberMe) => async (dispatch) => {
 
-    authAPI.login(email, password, rememberMe)
-        .then(data => {
+    let data = await authAPI.login(email, password, rememberMe)
             if (data.resultCode === 0) {
                 dispatch(authUser())
             }
@@ -33,17 +29,14 @@ export const loginUser = (email, password, rememberMe) => (dispatch) => {
                 let err = data.messages.length > 0 ? data.messages[0] : "Undefined error"
                 dispatch(stopSubmit("login", {_error: err}))
             }
-        })
 }
 
-export const logoutUser = () => (dispatch) => {
+export const logoutUser = () => async (dispatch) => {
 
-    authAPI.logout()
-        .then(data => {
+    let data = await authAPI.logout()
             if (data.resultCode === 0) {
                 dispatch(deleteAuthUserData())
             }
-        })
 }
 
 

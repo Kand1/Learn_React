@@ -14,7 +14,7 @@ import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import {Component} from "react";
 import {compose} from "redux";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 
