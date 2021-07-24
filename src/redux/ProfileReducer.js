@@ -1,11 +1,11 @@
 import {profileAPI, usersAPI} from "../api/api";
 import {setTotalUsersCount, setUsers, toggleIsFetching} from "./UsersReducer";
 
-const DELETE_POST = "DELETE-POST"
-const ADD_POST = "ADD-POST"
-const SET_USER_PROFILE = "SET-USER-PROFILE"
-const SET_PROFILE_PAGE_USER_ID = "SET-PROFILE-PAGE-USER-ID"
-const SET_STATUS = "SET-STATUS"
+const DELETE_POST = "profile/DELETE-POST"
+const ADD_POST = "profile/ADD-POST"
+const SET_USER_PROFILE = "profile/SET-USER-PROFILE"
+const SET_PROFILE_PAGE_USER_ID = "profile/SET-PROFILE-PAGE-USER-ID"
+const SET_STATUS = "profile/SET-STATUS"
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});

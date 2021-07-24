@@ -1,9 +1,9 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const CHANGE_ID = "CHANGE-ID";
+const ADD_MESSAGE = "dialogs/ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "dialogs/UPDATE-NEW-MESSAGE-TEXT";
+const CHANGE_ID = "dialogs/CHANGE-ID";
 
-export const addMessageActionCreate = (text) => ({type: "ADD-MESSAGE", text});
-export const changeIdActionCreate = (id2) => ({type: "CHANGE-ID", id: id2});
+export const addMessageActionCreate = (text) => ({type: ADD_MESSAGE, text});
+export const changeIdActionCreate = (id2) => ({type: CHANGE_ID, id: id2});
 
 let initialState = {
     messagesData: [

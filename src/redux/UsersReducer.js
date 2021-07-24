@@ -1,15 +1,15 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/ObjectHelper";
 
-const TOGGLE_SUB = "TOGGLE-SUB"
-const SET_USERS = "SET-USERS"
-const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
-const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT"
-const SET_PAGE_SIZE = "SET-PAGE-SIZE"
-const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING"
-const TOGGLE_FOLLOWING_PROGRESS = "TOGGLE-FOLLOWING-PROGRESS"
+const TOGGLE_SUB = "users/TOGGLE-SUB"
+const SET_USERS = "users/SET-USERS"
+const SET_CURRENT_PAGE = "users/SET-CURRENT-PAGE"
+const SET_TOTAL_USERS_COUNT = "users/SET-TOTAL-USERS-COUNT"
+const SET_PAGE_SIZE = "users/SET-PAGE-SIZE"
+const TOGGLE_IS_FETCHING = "users/TOGGLE-IS-FETCHING"
+const TOGGLE_FOLLOWING_PROGRESS = "users/TOGGLE-FOLLOWING-PROGRESS"
 
-export const toggleSub = (id) => ({type: TOGGLE_SUB, userid: id})
+export const toggleSub = (id, isFollow) => ({type: TOGGLE_SUB, userId: id, isFollow: isFollow})
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROGRESS, isFetching, userId})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const setUsers = (users) => ({type: SET_USERS, users})
@@ -41,7 +41,7 @@ export const followingStatusChange = (id, isFollow) => async (dispatch) => {
     }
 
     if (data.resultCode === 0) {
-        dispatch(toggleSub(id))
+        dispatch(toggleSub(id, isFollow))
         dispatch(toggleFollowingProgress(false, id))
     }
 
@@ -65,9 +65,8 @@ export const UsersReducer = (state = initialState, action) => {
         case TOGGLE_SUB: {
             return {
                 ...state,
-                users: state.users.map(u => {
-                    return (u.id === action.userid ? {...u, followed: !u.followed} : u);
-                })
+                users: updateObjectInArray(state.users, action.userId, "id",
+                    {followed: action.isFollow})
             }
         }
         case SET_USERS: {

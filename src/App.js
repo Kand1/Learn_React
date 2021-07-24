@@ -7,14 +7,14 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import News from './components/News/News'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import {Component} from "react";
 import {compose} from "redux";
-import {connect, Provider} from "react-redux";
+import {connect} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 
