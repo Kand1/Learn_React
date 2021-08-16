@@ -7,7 +7,7 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import News from './components/News/News'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
-import {BrowserRouter, Route} from "react-router-dom";
+import {HashRouter, BrowserRouter, Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
@@ -33,7 +33,7 @@ class App extends Component {
             </div>
         }
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className='app-wrap'>
                     <SidebarContainer/>
                     <Header/>
@@ -47,7 +47,7 @@ class App extends Component {
                         <Route path='/login' render={() => <LoginContainer/>}/>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }
