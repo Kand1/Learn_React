@@ -1,22 +1,52 @@
-.header img {
-    position	: relative;
-    width: 100%;
-    height: 150px;
-    border-radius: 5px ;
-}
-.header h2 {
-    position	: absolute;
-    top		: 100px;
-    left		: 0;
-    width		: 100%;
-}
+
+
 
 .header {
     grid-area: h;
-    background-color: navajowhite;
-    box-shadow: 3px 3px dimgray;
-    border-radius: 5px ;
+    background-color: #FFF;
+    box-shadow: 0 3px rgba(0, 0, 0, .2);
 }
 
+.username {
+    color: #9F699F;
+    grid-area: u;
+    margin-right: 5px;
+    margin-top: 18px;
+    font-size: 1.4rem;
+}
+
+.username:hover {
+    color: #9F699F;
+}
+
+.logout {
+    color: #9F699F;
+    grid-area: l;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.photo {
+    height: 50px;
+    width: 50px;
+    grid-area: p;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.rightSide {
+    margin-right: 15vw;
+    color: #9F699F;
+    text-align: right;
+    display: grid;
+    grid-template-areas: "u p l";
+    grid-template-columns: 1fr 50px 24px ;
+}
+
+@media (max-width: 1000px) {
+    .rightSide {
+        margin-right: 20px;
+    }
+}
 
 

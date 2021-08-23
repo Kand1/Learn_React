@@ -1,24 +1,26 @@
 .app-wrap {
   display: grid;
-  width: 1200px;
-  margin: 0 auto;
-  grid-template-areas: "h h" "n p";
-  grid-template-rows: 150px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-  font-family: "ＭＳ Ｐゴシック";
-  font-weight: bolder;
-
-
+  grid-template-areas: "h h h h" ". n p .";
+  grid-template-rows: 70px 1fr;
+  grid-template-columns:3fr 170px 10fr 3fr;
+  font-family: "Open Sans", monospace;
+  font-weight: normal;
+  font-size: 1.1rem;
 }
 
 .app-wrap-content  {
+  margin-top: 20px;
+  margin-left: 20px;
   grid-area: p;
-  /*background-color: #ffdead;*/
-  background-color: #FFEBE4;
-  box-shadow: 3px 3px dimgray;
-  border-radius: 5px ;
+  background-color: rgba(207, 168, 207, 0.2)
 }
+
+@media (max-width: 800px) {
+  .app-wrap {
+    grid-template-columns:20px 150px 1fr 20px;
+  }
+}
+
 
 
 

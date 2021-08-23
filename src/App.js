@@ -1,8 +1,6 @@
 
 import './App.css';
 
-import Header from './components/Header/Header'
-
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import News from './components/News/News'
@@ -10,13 +8,14 @@ import DialogsContainer from './components/Dialogs/DialogsContainer'
 import {HashRouter, BrowserRouter, Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import {Component} from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/AppReducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 
 class App extends Component {
@@ -28,15 +27,14 @@ class App extends Component {
     render() {
         if (!this.props.initializedSet) {
             return<div>
-                <div>Please wait</div>
                 <Preloader/>
             </div>
         }
         return (
             <HashRouter>
                 <div className='app-wrap'>
-                    <SidebarContainer/>
-                    <Header/>
+                    <Sidebar/>
+                    <HeaderContainer/>
                     <div className='app-wrap-content'>
                         <Route path='/profile/:userid?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>

@@ -1,20 +1,20 @@
 .nav {
+    margin-top: 20px;
     grid-area: n;
-    background-color: #FFABA4;
+    background-color: rgba(207, 168, 207, 0.2);
     padding: 20px;
-    box-shadow: 3px 3px dimgray;
-    border-radius: 5px ;
+    height: 270px;
 }
 
 .item a{
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
     transition: all 500ms  ease;
-    color: azure;
+    color: #9F699F;
     text-decoration: none;
 }
 
 .item a.active{
-    color: dimgray;
+    color: #672267;
 }
 
 .item {
@@ -27,12 +27,10 @@
 }
 
 
-.item:hover {
+.item:hover a{
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
-    transition: all 500ms  ease;
-    background: #FF7B74;
-
-    box-shadow: 2px 2px dimgray;
+    transition: all 200ms  ease;
+    color: #672267;
     border-radius: 5px ;
 }
 
