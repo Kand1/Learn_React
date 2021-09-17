@@ -34,6 +34,13 @@
     margin-top: 10px;
 }
 
+.login {
+    color: #9F699F;
+    grid-area: p;
+    margin-top: 18px;
+    font-size: 1.4rem;
+}
+
 .rightSide {
     margin-right: 15vw;
     color: #9F699F;

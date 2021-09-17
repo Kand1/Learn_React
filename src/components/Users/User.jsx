@@ -7,7 +7,6 @@ import {NavLink} from "react-router-dom";
 
 let User = ({u, followingProgress, followingStatusChange}) => {
 
-    console.log(u)
     return (<div>
             <div key={u.id}>
             <span>

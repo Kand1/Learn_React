@@ -32,17 +32,19 @@ class App extends Component {
         }
         return (
             <HashRouter>
-                <div className='app-wrap'>
-                    <Sidebar/>
-                    <HeaderContainer/>
-                    <div className='app-wrap-content'>
-                        <Route path='/profile/:userid?' render={() => <ProfileContainer/>}/>
-                        <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/music' render={() => <Music/>}/>
-                        <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/news' render={() => <News/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/login' render={() => <LoginContainer/>}/>
+                <div className='app'>
+                    <div className='app-wrap'>
+                        <Sidebar/>
+                        <HeaderContainer/>
+                        <div className='app-wrap-content'>
+                            <Route path='/profile/:userid?' render={() => <ProfileContainer/>}/>
+                            <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+                            <Route path='/music' render={() => <Music/>}/>
+                            <Route path='/settings' render={() => <Settings/>}/>
+                            <Route path='/news' render={() => <News/>}/>
+                            <Route path='/users' render={() => <UsersContainer/>}/>
+                            <Route path='/login' render={() => <LoginContainer/>}/>
+                        </div>
                     </div>
                 </div>
             </HashRouter>

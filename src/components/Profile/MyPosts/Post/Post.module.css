@@ -1,47 +1,56 @@
 
 .item {
     display: grid;
-    grid-template-areas: "i m" "l l";
-    grid-template-rows: 1fr 25px;
-    grid-template-columns: 80px 1fr;
+    grid-template-areas: "i m" "l .";
+    grid-template-rows: 1fr 40px;
+    grid-template-columns: 100px 1fr;
     margin: 20px 0px 20px 0px;
-    background: #fffff0;
-    box-shadow: 3px 3px dimgray;
+    background: #EFF0F6;
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+    font-weight: lighter;
+
     border-radius: 10px ;
 }
 
 .likesCount {
     grid-area: c;
+    padding-top: 5px;
+    padding-left: 15px;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 5px;
 }
 
-.likeText {
-    grid-area: t;
-    margin: 0 auto;
-}
 
 .likeButton {
     grid-area: b;
-    margin: 0px 0px 10px 0px;
+    border-radius: 100px;
+    border: 1px  white;
+    background-color: white;
+
 }
 
 .postMessage {
     grid-area: m;
+    margin: 10px;
 }
 
 .postImage {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     grid-area: i;
-    margin: 10px;
     border-radius: 15px ;
-    box-shadow: 3px 3px dimgray;
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+    margin: 10px;
 }
 
 .like {
     display: grid;
     grid-area: l;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "b t c";
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "b c";
+    margin-left: 10px;
+    margin-bottom: 10px;
+
 }
 

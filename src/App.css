@@ -1,23 +1,33 @@
+.app{
+  background-color: #EFF0F6;
+  background-repeat: repeat;
+}
+
 .app-wrap {
   display: grid;
-  grid-template-areas: "h h h h" ". n p .";
+  grid-template-areas: "h h h h h" ". n p . .";
   grid-template-rows: 70px 1fr;
-  grid-template-columns:3fr 170px 10fr 3fr;
+  grid-template-columns: 3fr 170px 1fr 170px 3fr;
   font-family: "Open Sans", monospace;
   font-weight: normal;
   font-size: 1.1rem;
+
 }
 
 .app-wrap-content  {
   margin-top: 20px;
   margin-left: 20px;
   grid-area: p;
-  background-color: rgba(207, 168, 207, 0.2)
+  background-color: white;
+  min-width: 600px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .app-wrap {
     grid-template-columns:20px 150px 1fr 20px;
+  }
+  .app-wrap-content  {
+    min-width: 350px;
   }
 }
 

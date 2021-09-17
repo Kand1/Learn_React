@@ -7,7 +7,6 @@ import React from "react";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
-
     if (!props.profile) {
         return <Preloader/>
     }
@@ -15,34 +14,39 @@ const ProfileInfo = (props) => {
     let allContacts = []
 
     for (let key in props.profile.contacts){
-        allContacts.push(<div>{key + ':' +props.profile.contacts[key]}</div>)
+        if (props.profile.contacts[key])
+        allContacts.push(<div>{key + ': ' +props.profile.contacts[key]}</div>)
     }
 
     return <div className={s.profileInfo}>
-        <div>
-            <img className={s.header_picture} src={headPict}></img>
-        </div>
+        <div className={s.topBlock}>
         <div className={s.fullN}>
             {props.profile.fullName}
+            <div className={s.status}>
+                <ProfileStatusWithHooks
+                    updateStatus = {props.updateStatus}
+                    status ={props.status}/>
+            </div>
         </div>
         <div>
             <img className={s.ava} src={props.profile.photos.large != null ? props.profile.photos.large : avatar}/>
         </div>
-        <div>
-            <ProfileStatusWithHooks
-                updateStatus = {props.updateStatus}
-                status ={props.status}/>
-            About me: {props.profile.aboutMe}
         </div>
-        <div>
-            {props.profile.lookingForAJob ? ('Ищу работу: ' + props.profile.lookingForAJobDescription) : null}
+        <div className={s.bottomBlock}>
+            <div className={s.aboutMe}>
+                About me:
+            </div>
+            <div className={s.aboutMeDescr}>
+                {props.profile.aboutMe}
+            </div>
+            <div className={s.contacts}>
+                Contacts:
+            </div>
+            <div className={s.contactsList}>
+                {allContacts}
+            </div>
         </div>
-        <div>
-            Contacts:
-        </div>
-        <div>
-            {allContacts}
-        </div>
+
     </div>
 
 }

@@ -8,7 +8,8 @@ import MyPosts from "./MyPosts";
 
 let mapStateToProps = (state) => {
     return {
-        page: state.profilePage
+        page: state.profilePage,
+        id: state.auth.id
     }
 }
 

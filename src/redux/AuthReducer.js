@@ -13,10 +13,10 @@ export const deleteAuthUserData = () => ({type: DELETE_USER_DATA})
 export const authUser = () => async (dispatch) => {
 
     let data = await authAPI.auth()
-    let profile = await profileAPI.getProfile(data.data.id)
     if (data.resultCode === 0) {
-                dispatch(setAuthUserData(data.data, profile.photos))
-            }
+        let profile = await profileAPI.getProfile(data.data.id)
+        dispatch(setAuthUserData(data.data, profile.photos))
+    }
 
 }
 

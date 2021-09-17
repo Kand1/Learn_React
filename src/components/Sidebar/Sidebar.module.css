@@ -1,9 +1,11 @@
 .nav {
     margin-top: 20px;
     grid-area: n;
-    background-color: rgba(207, 168, 207, 0.2);
+    background-color: white;
     padding: 20px;
     height: 270px;
+    box-shadow: 0 1px rgba(0, 0, 0, .2);
+
 }
 
 .item a{

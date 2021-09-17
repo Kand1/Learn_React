@@ -1,23 +1,69 @@
-.profileInfo {
- padding: 20px;
+.topBlock {
+    display: grid;
+    grid-template-areas: "p n";
+    grid-template-columns: 180px 1fr ;
+    margin-bottom: 40px;
 }
 
-.header_picture {
-    height: 150px;
-    width: 100%;
-    border-radius: 5px ;
+.profileInfo {
+    padding: 20px;
+    box-shadow: 0 3px rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+    background-color: white;
 }
 
 .ava {
     height: 150px;
     width: 150px;
-    border-radius: 5px ;
-    margin: 10px;
+    border-radius: 15px ;
+    grid-area: p;
+
 }
 
 .fullN {
-    margin: 20px 0px 20px 0px;
+    margin-top: 20px;
     font-size: 30px;
     line-height: 20px;
     color: black;
+    grid-area: n;
+}
+
+.status {
+    font-size: 20px;
+    line-height: 5px;
+    color: gray;
+    padding-top: 10px;
+}
+
+.bottomBlock {
+    display: grid;
+    grid-template-areas: "am amd" "c cl ";
+    grid-template-columns: 120px 1fr ;
+    grid-template-rows: 30px 1fr ;
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+
+.aboutMe {
+    grid-area: am;
+    color: #672267;
+    font-size: 20px;
+}
+
+.aboutMeDescr {
+    grid-area: amd;
+    color: #9F699F;
+
+}
+
+.contacts {
+    grid-area: c;
+    color: #672267;
+    font-size: 20px;
+}
+
+.contactsList {
+    grid-area: cl;
+    color: #9F699F;
+
 }

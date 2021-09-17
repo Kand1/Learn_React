@@ -5,10 +5,9 @@ import App from "../App";
 let initialState = {
 
     postsData: [
-        {id: 0, message: 'thats ggg', likes: '8'},
-        {id: 1, message: 'thats was wp', likes: '4'},
-        {id: 2, message: 'thats was greeeeeeasLLLLL LLLL wp', likes: '844'},
-        {id: 3, message: 'wp brat', likes: '-1'}
+        {id: 0, message: 'you can add posts, but they will be same on any page', likes: '8'},
+        {id: 1, message: 'likes dont work', likes: '4'},
+        {id: 2, message: '(((', likes: '2'},
     ]
 };
 
