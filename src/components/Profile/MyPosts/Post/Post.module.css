@@ -2,7 +2,7 @@
 .item {
     display: grid;
     grid-template-areas: "i m" "l .";
-    grid-template-rows: 1fr 40px;
+    grid-template-rows: 1fr 50px;
     grid-template-columns: 100px 1fr;
     margin: 20px 0px 20px 0px;
     background: #EFF0F6;
@@ -14,11 +14,11 @@
 
 .likesCount {
     grid-area: c;
-    padding-top: 5px;
-    padding-left: 15px;
     background-color: white;
     border-radius: 20px;
     margin-left: 5px;
+    padding-left: 14px;
+    padding-top: 6px;
 }
 
 
@@ -27,7 +27,8 @@
     border-radius: 100px;
     border: 1px  white;
     background-color: white;
-
+    padding: 0;
+    margin: 0;
 }
 
 .postMessage {
@@ -50,7 +51,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "b c";
     margin-left: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 
 }
 

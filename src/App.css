@@ -1,6 +1,7 @@
 .app{
   background-color: #EFF0F6;
   background-repeat: repeat;
+  min-height: 100vh;
 }
 
 .app-wrap {

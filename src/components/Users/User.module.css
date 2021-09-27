@@ -1,21 +1,82 @@
 .avatar {
-    width: 150px;
-    height: 150px;
-    grid-area: i;
-    margin: 10px;
+    grid-area: a;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    margin-left: 30px;
     border-radius: 15px ;
-    box-shadow: 3px 3px dimgray;
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
 }
 
-.selectedPage {
-    font-weight: bold;
-    padding: 5px;
-    background: #fffff0;
-    width: 200px;
-    box-shadow: 3px 3px dimgray;
-    border-radius: 5px ;
-}
 
 span {
     margin: 5px;
 }
+
+.user {
+    background-color: #EFF0F6;
+    margin: 20px 25px 20px 25px;
+    height: 140px;
+    display: grid;
+    grid-template-rows: 50px 90px;
+    grid-template-columns: 140px 1fr 120px;
+    grid-template-areas: "a n b" "a s .";
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+
+}
+
+.name {
+    font-size: 1.5rem;
+    padding-top: 20px;
+    padding-left: 5px;
+    grid-area: n;
+}
+
+.status {
+    grid-area: s;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 1rem;
+}
+
+.followButton {
+    grid-area: b;
+    margin-top: 22px;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.button {
+    width: 100px;
+    border: 1px solid #672267;
+    color: #672267;
+    border-radius: 20px;
+    background-color: #EFF0F6;
+}
+
+.button:active {
+    border: 1px solid #9F699F;
+    background-color: #E9E7ED;
+}
+
+.pagination {
+
+    margin-top: 12px;
+}
+
+.paginationFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+    height: 60px;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+    color: #672267;
+}
+

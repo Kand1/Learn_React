@@ -30,9 +30,8 @@
 
 .status {
     font-size: 20px;
-    line-height: 5px;
+    line-height: 20px;
     color: gray;
-    padding-top: 10px;
 }
 
 .bottomBlock {

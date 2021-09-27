@@ -32,6 +32,9 @@
     grid-area: p;
     border-radius: 50px;
     margin-top: 10px;
+    margin-left: 2px;
+    margin-right: 5px;
+
 }
 
 .login {
@@ -47,7 +50,7 @@
     text-align: right;
     display: grid;
     grid-template-areas: "u p l";
-    grid-template-columns: 1fr 50px 24px ;
+    grid-template-columns: 1fr 60px 24px ;
 }
 
 @media (max-width: 1000px) {

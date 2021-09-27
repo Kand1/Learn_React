@@ -35,7 +35,10 @@ const MyPosts = React.memo((props) => {
 const AddPostForm = (props) => {
     return <form onSubmit={props.handleSubmit} className={s.addPost}>
         <div>
-            <Field className={s.addPostField} component={Textarea} name = {"newPostBody"}
+            <Field className={s.addPostField}
+                   component={Textarea}
+                   name = {"newPostBody"}
+                   placeholder={"Enter your post"}
                    validate = {[maxLength]}/>
         </div>
         <div>
