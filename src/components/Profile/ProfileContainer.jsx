@@ -1,7 +1,7 @@
 import Profile from "./Profile";
 import React from "react";
 import { connect } from "react-redux";
-import {getProfile, getStatus, setUserProfile, updateStatus} from "../../redux/ProfileReducer";
+import {getProfile, getStatus, savePhoto, setUserProfile, updateStatus} from "../../redux/ProfileReducer";
 import {withRouter} from "react-router";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -33,19 +33,14 @@ class ProfileContainer extends React.Component{
             this.props.getProfile(userID)
             this.props.getStatus(userID)
         }
-        if (prevProps.status != this.props.status)
-        {
-            this.setState({
-                status: this.props.status
-            })
-        }
     }
 
 
 
     render () {
-
         return (<Profile {...this.props}
+                         savePhoto = {this.props.savePhoto}
+                         isOwner = {!this.props.match.params.userid || (this.props.match.params.userid === this.props.authUserId)}
                          status = {this.props.status}
                          updateStatus = {this.props.updateStatus}
                          profile = {this.props.profile} />)
@@ -65,7 +60,9 @@ export default compose(
         setUserProfile,
         getProfile,
         getStatus,
-        updateStatus}),
+        updateStatus,
+        savePhoto
+    }),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

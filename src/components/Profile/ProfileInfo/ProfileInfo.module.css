@@ -64,5 +64,20 @@
 .contactsList {
     grid-area: cl;
     color: #9F699F;
+}
 
+.changeAvatarButton {
+
+    color: #672267;
+    border-radius: 10px;
+    height: 35px;
+    margin-top: 15px;
+}
+
+input::-webkit-file-upload-button{
+    border: 1px solid #672267;
+    color: #672267;
+    border-radius: 10px;
+    height: 30px;
+    background-color: #EFF0F6;
 }

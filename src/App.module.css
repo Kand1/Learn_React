@@ -4,7 +4,7 @@
   min-height: 100vh;
 }
 
-.app-wrap {
+.appWrap {
   display: grid;
   grid-template-areas: "h h h h h" ". n p . .";
   grid-template-rows: 70px 1fr;
@@ -15,7 +15,7 @@
 
 }
 
-.app-wrap-content  {
+.appWrapContent  {
   margin-top: 20px;
   margin-left: 20px;
   grid-area: p;
@@ -24,10 +24,10 @@
 }
 
 @media (max-width: 1000px) {
-  .app-wrap {
+  .appWrap {
     grid-template-columns:20px 150px 1fr 20px;
   }
-  .app-wrap-content  {
+  .appWrapContent  {
     min-width: 350px;
   }
 }

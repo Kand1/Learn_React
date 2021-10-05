@@ -6,11 +6,14 @@ const ADD_POST = "profile/ADD-POST"
 const SET_USER_PROFILE = "profile/SET-USER-PROFILE"
 const SET_PROFILE_PAGE_USER_ID = "profile/SET-PROFILE-PAGE-USER-ID"
 const SET_STATUS = "profile/SET-STATUS"
+const SET_PHOTO = "profile/SET-PHOTO"
+
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 export const addPostActionCreate = (text) => ({type: ADD_POST, text});
 export const deletePost = (id) => ({type: DELETE_POST, id});
+export const setPhoto = (photos) => ({type: SET_PHOTO, photos});
 
 
 export const getProfile = (id) => async (dispatch) => {
@@ -40,6 +43,16 @@ export const updateStatus = (status) => async (dispatch) => {
 
 }
 
+export const savePhoto = (photo) => async (dispatch) => {
+
+    let data = await profileAPI.savePhoto(photo)
+    if (data.resultCode === 0)
+    {
+        dispatch(setPhoto(data.data.photos))
+    }
+
+}
+
 
 let initialState = {
 
@@ -61,11 +74,10 @@ export const ProfileReducer = (state = initialState, action) => {
                 likes: '0',
                 id: state.postsData.length
             };
-            let stateCopy = {
+            return {
                 ...state,
                 postsData: [...state.postsData, newPost]
             };
-            return stateCopy;
         }
         case SET_USER_PROFILE: {
 
@@ -80,14 +92,20 @@ export const ProfileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 status: action.status
+            }
+        }
+        case SET_PHOTO: {
 
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
             }
         }
         case DELETE_POST: {
 
             return {
                 ...state,
-                postsData: state.postsData.filter(p => p.id != action.id)
+                postsData: state.postsData.filter(p => p.id !== action.id)
             }
         }
         default:
