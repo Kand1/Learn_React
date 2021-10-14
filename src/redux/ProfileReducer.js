@@ -57,7 +57,7 @@ export const savePhoto = (photo) => async (dispatch) => {
 let initialState = {
 
     postsData: [
-        {id: 0, message: 'you can add posts, but they will be same on any page', likes: '8'},
+        {id: 0, message: 'you can add posts, but they will be same on any user page', likes: '8'},
         {id: 1, message: 'likes dont work', likes: '4'},
         {id: 2, message: '(((', likes: '2'},
     ],

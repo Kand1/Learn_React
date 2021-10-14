@@ -23,6 +23,12 @@ const Messages = (props) => {
 
 const Dialogs = (props) => {
 
+    return <div>
+        <div className={s.header}>
+            Messages
+        </div>
+    </div>
+//  todo
     let dialogsElements = props.page.dialogsData
         .map(dialog => <DialogItem changeId = {props.changeId} id = {dialog.id} name ={dialog.name}/>)
 

@@ -1,4 +1,9 @@
 .item {
+    margin: 20px;
+    line-height: 1.3rem;
+}
+
+.header {
     box-shadow: 0 2px rgba(0, 0, 0, .2);
     height: 60px;
     padding-top: 10px;

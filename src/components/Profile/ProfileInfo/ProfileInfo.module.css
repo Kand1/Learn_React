@@ -34,6 +34,15 @@
     color: gray;
 }
 
+.statusInput {
+    font-size: 20px;
+    line-height: 20px;
+    color: gray;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
 .bottomBlock {
     display: grid;
     grid-template-areas: "am amd" "c cl ";
@@ -67,7 +76,7 @@
 }
 
 .changeAvatarButton {
-
+    width: 150px;
     color: #672267;
     border-radius: 10px;
     height: 35px;

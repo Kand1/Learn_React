@@ -7,9 +7,6 @@ import React from "react";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
-    if (!props.profile) {
-        return <Preloader/>
-    }
 
     let allContacts = []
 
@@ -35,7 +32,7 @@ const ProfileInfo = (props) => {
         </div>
         <div>
             <img className={s.ava} src={props.profile.photos.large != null ? props.profile.photos.large : avatar}/>
-            {props.isOwner && <input type={"file"} className={s.changeAvatarButton} onChange={mainPhotoSelected}/>}
+            {props.isOwner && <input  type={"file"} className={s.changeAvatarButton} onChange={mainPhotoSelected}/>}
         </div>
         </div>
         <div className={s.bottomBlock}>

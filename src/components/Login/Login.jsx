@@ -17,7 +17,6 @@ const Login = (props) => {
     }
 
     return <div>
-        <h2>Login</h2>
         <ReduxLoginForm onSubmit = {onSubmit}/>
     </div>
 
@@ -25,12 +24,15 @@ const Login = (props) => {
 
 const LoginForm = ({handleSubmit, error}) => {
     return <form onSubmit={handleSubmit}>
+        <div className={s.header}>Login</div>
+        <div className={s.loginForm}>
+
             <div>
-                <Field component={Input} name = {"login"} placeholder={"Login"}
+                <Field className={s.inputField} component={Input} name = {"login"} placeholder={"Login"}
                        validate = {[requiredField]}/>
             </div>
             <div >
-                <Field component={Input} name = {"password"}  placeholder={"Password"} type = {"password"}
+                <Field className={s.inputField} component={Input} name = {"password"}  placeholder={"Password"} type = {"password"}
                        validate = {[requiredField]}/>
             </div>
             <div className={s.formSummaryError}>
@@ -38,11 +40,23 @@ const LoginForm = ({handleSubmit, error}) => {
             </div>
             <div>
                 <div className={s.checkbox}><Field component={Input} name = {"rememberMe"}  type ={"checkbox"}/></div>
-                <div className={s.checkbox}> remember me</div>
+                <div className={s.checkboxText}> remember me</div>
             </div>
             <div>
-                <button>Login</button>
+                <button className={s.loginButton}>Login</button>
             </div>
+            <div className={s.text}>
+                Чтобы ознакомиться с функциональностью сайта
+                <br/>
+                перейдите в раздел 'Info'
+                <p/>
+                Используйте данные логин и пароль для входа
+                <p/>
+                login: eternalflick@gmail.com
+                <br/>
+                password: 123456
+            </div>
+        </div>
         </form>
 
 }

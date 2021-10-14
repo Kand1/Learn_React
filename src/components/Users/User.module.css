@@ -52,6 +52,7 @@ span {
     color: #672267;
     border-radius: 20px;
     background-color: #EFF0F6;
+    cursor: pointer;
 }
 
 .button:active {
