@@ -83,6 +83,7 @@
 }
 
 input::-webkit-file-upload-button{
+    width: 150px;
     border: 1px solid #672267;
     color: #672267;
     border-radius: 10px;
