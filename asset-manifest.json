@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Learn_React/static/css/main.d2b40bee.chunk.css",
+    "main.css": "/Learn_React/static/css/main.a3405661.chunk.css",
     "main.js": "/Learn_React/static/js/main.81bcc2f9.chunk.js",
     "main.js.map": "/Learn_React/static/js/main.81bcc2f9.chunk.js.map",
     "runtime-main.js": "/Learn_React/static/js/runtime-main.7a8d0a3f.js",
@@ -28,7 +28,7 @@
     "static/css/4.2ca4f74c.chunk.css.map": "/Learn_React/static/css/4.2ca4f74c.chunk.css.map",
     "static/css/5.914ca3fa.chunk.css.map": "/Learn_React/static/css/5.914ca3fa.chunk.css.map",
     "static/css/6.5efdc8e3.chunk.css.map": "/Learn_React/static/css/6.5efdc8e3.chunk.css.map",
-    "static/css/main.d2b40bee.chunk.css.map": "/Learn_React/static/css/main.d2b40bee.chunk.css.map",
+    "static/css/main.a3405661.chunk.css.map": "/Learn_React/static/css/main.a3405661.chunk.css.map",
     "static/js/2.1473d31f.chunk.js.LICENSE.txt": "/Learn_React/static/js/2.1473d31f.chunk.js.LICENSE.txt",
     "static/media/Spinner200px.d1b92144.svg": "/Learn_React/static/media/Spinner200px.d1b92144.svg",
     "static/media/default_avatar.5154a37d.jpg": "/Learn_React/static/media/default_avatar.5154a37d.jpg",
@@ -38,7 +38,7 @@
     "static/js/runtime-main.7a8d0a3f.js",
     "static/css/2.558413a2.chunk.css",
     "static/js/2.1473d31f.chunk.js",
-    "static/css/main.d2b40bee.chunk.css",
+    "static/css/main.a3405661.chunk.css",
     "static/js/main.81bcc2f9.chunk.js"
   ]
 }
