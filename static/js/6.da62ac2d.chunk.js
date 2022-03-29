@@ -1,2 +1,0 @@
-(this.webpackJsonpvladek=this.webpackJsonpvladek||[]).push([[6],{358:function(t,e,s){t.exports={item:"Settings_item__ZsNMg"}},365:function(t,e,s){"use strict";s.r(e);var i=s(358),n=s.n(i),a=s(1);e.default=function(t){return Object(a.jsx)("div",{className:n.a.item,children:"Settings"})}}}]);
-//# sourceMappingURL=6.da62ac2d.chunk.js.map

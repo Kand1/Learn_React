@@ -1,2 +1,0 @@
-(this.webpackJsonpvladek=this.webpackJsonpvladek||[]).push([[5],{359:function(e,t,n){e.exports={item:"News_item__3GPso"}},366:function(e,t,n){"use strict";n.r(t);var s=n(0),c=n(359),o=n.n(c),i=n(1);t.default=function(e){return Object(s.useEffect)((function(){return console.log("NEWS MOUNT"),function(){console.log("NEWS UNMOUNT")}})),Object(i.jsx)("div",{className:o.a.item,children:"News"})}}}]);
-//# sourceMappingURL=5.9136d70b.chunk.js.map
