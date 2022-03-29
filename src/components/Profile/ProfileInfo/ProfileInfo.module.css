@@ -91,3 +91,39 @@ input::-webkit-file-upload-button{
     height: 30px;
     background-color: #EFF0F6;
 }
+
+@media (max-width: 550px) {
+    .ava {
+        height: 100px;
+        width: 100px;
+    }
+    .topBlock {
+        grid-template-columns: 120px 1fr ;
+    }
+    .fullN {
+        margin-top: 20px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .status {
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    .aboutMe {
+        font-size: 1rem;
+    }
+
+    .aboutMeDescr {
+        font-size: 0.8rem;
+    }
+
+    .contacts {
+        font-size: 1rem;
+    }
+
+    .contactsList {
+        font-size: 0.8rem;
+    }
+}

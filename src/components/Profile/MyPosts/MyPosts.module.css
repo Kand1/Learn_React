@@ -29,6 +29,7 @@
 }
 
 .addPostButton {
+    line-height: 1rem;
     grid-area: adpb;
     border: 1px solid #672267;
     color: #672267;
