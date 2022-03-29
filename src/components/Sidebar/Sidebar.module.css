@@ -36,3 +36,15 @@
     border-radius: 5px ;
 }
 
+@media (max-width: 1000px) {
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        height: 100px;
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+

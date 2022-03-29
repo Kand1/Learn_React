@@ -12,12 +12,12 @@
   font-family: "Open Sans", monospace;
   font-weight: normal;
   font-size: 1.1rem;
-
 }
 
 .appWrapContent  {
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 20px;
   grid-area: p;
   background-color: white;
   min-width: 600px;
@@ -25,12 +25,20 @@
 
 @media (max-width: 1000px) {
   .appWrap {
-    grid-template-columns:20px 150px 1fr 20px;
+    grid-template-areas: "h" "n" "p";
+    grid-template-columns:1fr;
+    grid-template-rows: 70px 150px 1fr;
   }
   .appWrapContent  {
-    min-width: 350px;
+    min-width: 0px;
   }
+
 }
+
+
+
+
+
 
 
 

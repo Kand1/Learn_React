@@ -23,7 +23,7 @@
 .fullN {
     margin-top: 20px;
     font-size: 30px;
-    line-height: 20px;
+    line-height: 25px;
     color: black;
     grid-area: n;
 }
@@ -38,7 +38,7 @@
     font-size: 20px;
     line-height: 20px;
     color: gray;
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
     max-width: 300px;
 }
@@ -56,6 +56,7 @@
     grid-area: am;
     color: #672267;
     font-size: 20px;
+    text-overflow: ellipsis;
 }
 
 .aboutMeDescr {

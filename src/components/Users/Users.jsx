@@ -10,7 +10,7 @@ let Users = (props) => {
     if (props.isAuth == false)
         return <Redirect to={"/login"}/>
 
-    return (<div>
+    return (<div className = {s.content}>
             <div className = {s.header}>
                 Users
             </div>

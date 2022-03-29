@@ -1,3 +1,8 @@
+.content {
+    background-color: white;
+    width: 100%;
+}
+
 .avatar {
     grid-area: a;
     width: 100px;
@@ -14,29 +19,32 @@ span {
 }
 
 .user {
+
     background-color: #EFF0F6;
     margin: 20px 25px 20px 25px;
     height: 140px;
     display: grid;
-    grid-template-rows: 50px 90px;
-    grid-template-columns: 140px 1fr 120px;
-    grid-template-areas: "a n b" "a s .";
+    grid-template-rows: 50px 15px 40px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "a n n" "a s s" "a . b";
     box-shadow: 0 2px rgba(0, 0, 0, .2);
-
+    width: 91%;
 }
 
 .name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding-top: 20px;
     padding-left: 5px;
     grid-area: n;
+    text-overflow: ellipsis;
 }
 
 .status {
     grid-area: s;
     padding-top: 5px;
     padding-left: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    text-overflow: ellipsis;
 }
 
 .followButton {
@@ -53,6 +61,7 @@ span {
     border-radius: 20px;
     background-color: #EFF0F6;
     cursor: pointer;
+
 }
 
 .button:active {
