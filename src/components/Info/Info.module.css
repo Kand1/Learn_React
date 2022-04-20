@@ -1,6 +1,13 @@
 .item {
-    margin: 20px;
-    line-height: 1.3rem;
+    padding: 10px;
+    line-height: 1.5rem;
+    margin: 20px 20px;
+    background: #EFF0F6;
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+    font-weight: lighter;
+    border-radius: 10px ;
+    color: dimgray;
+
 }
 
 .header {

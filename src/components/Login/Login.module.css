@@ -11,9 +11,6 @@
     color: rosybrown;
 }
 
-.loginForm {
-    margin: 20px;
-}
 
 .inputField {
     margin-top: 10px;
@@ -35,9 +32,27 @@
     background-color: #E9E7ED;
 }
 
-.text {
-    line-height: 1.5rem;
+.loginForm {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
+.text {
+    padding: 10px;
+    line-height: 1.5rem;
+    background: #EFF0F6;
+    box-shadow: 0 2px rgba(0, 0, 0, .2);
+    font-weight: lighter;
+    border-radius: 10px ;
+    width: 310px;
+    color: dimgray;
+}
+
+.leftPart {
+    margin-right: 20px;
 }
 
 .header {

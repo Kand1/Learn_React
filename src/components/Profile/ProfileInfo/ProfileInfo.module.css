@@ -45,9 +45,9 @@
 
 .bottomBlock {
     display: grid;
-    grid-template-areas: "am amd" "c cl ";
+    grid-template-areas: "am amd" "c cl " "eb cl";
     grid-template-columns: 120px 1fr ;
-    grid-template-rows: 30px 1fr ;
+    grid-template-rows: 30px 30px 1fr;
     margin-bottom: 20px;
     line-height: 25px;
 }
@@ -77,19 +77,54 @@
 }
 
 .changeAvatarButton {
-    color: #FFFFFF;
-    border-radius: 10px;
-    height: 35px;
+    /*color: #FFFFFF;*/
+    /*border-radius: 10px;*/
+    /*height: 35px;*/
+    /*margin-top: 15px;*/
+
+    border: 1px solid #672267;
+    color: #672267;
+    border-radius: 20px;
+    height: 30px;
+    background-color: #EFF0F6;
+    cursor: pointer;
+    padding: 0 6px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+
+.editButton {
+    line-height: 1rem;
+    grid-area: eb;
+    border: 1px solid #672267;
+    color: #672267;
+    border-radius: 20px;
+    width: 90px;
+    height: 30px;
+    background-color: #EFF0F6;
     margin-top: 15px;
 }
 
-input::-webkit-file-upload-button{
-    width: 150px;
-    border: 1px solid #672267;
-    color: #672267;
-    border-radius: 10px;
-    height: 30px;
-    background-color: #EFF0F6;
+.editButton:hover {
+    cursor: pointer;
+}
+
+.editButton:active {
+    border: 1px solid #9F699F;
+    background-color: #E9E7ED;
+}
+
+.formSummaryError {
+    grid-area: err;
+    padding: 10px;
+    color: rosybrown;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 @media (max-width: 550px) {
@@ -125,5 +160,15 @@ input::-webkit-file-upload-button{
 
     .contactsList {
         font-size: 0.8rem;
+    }
+    .editButton {
+        width: 85px;
+    }
+    .changeAvatarButton {
+        font-size: 0.9rem;
+        margin-left: -7px;
+    }
+    .editButton {
+        font-size: 0.9rem;
     }
 }

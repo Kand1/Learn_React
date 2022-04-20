@@ -3,6 +3,7 @@ import {Input} from "../common/FormsContent/FormsContent";
 import {maxLengthCreator, requiredField} from "../../utils/validators/validators";
 import { Redirect } from 'react-router';
 import s from "./Login.module.css"
+import {Button, Popover} from "antd";
 
 
 
@@ -26,24 +27,25 @@ const LoginForm = ({handleSubmit, error}) => {
     return <form onSubmit={handleSubmit}>
         <div className={s.header}>Login</div>
         <div className={s.loginForm}>
-
-            <div>
-                <Field className={s.inputField} component={Input} name = {"login"} placeholder={"Login"}
-                       validate = {[requiredField]}/>
-            </div>
-            <div >
-                <Field className={s.inputField} component={Input} name = {"password"}  placeholder={"Password"} type = {"password"}
-                       validate = {[requiredField]}/>
-            </div>
-            <div className={s.formSummaryError}>
-                {error}
-            </div>
-            <div>
-                <div className={s.checkbox}><Field component={Input} name = {"rememberMe"}  type ={"checkbox"}/></div>
-                <div className={s.checkboxText}> remember me</div>
-            </div>
-            <div>
-                <button className={s.loginButton}>Login</button>
+            <div className={s.leftPart}>
+                <div>
+                    <Field className={s.inputField} component={Input} name = {"login"} placeholder={"Login"}
+                           validate = {[requiredField]}/>
+                </div>
+                <div >
+                    <Field className={s.inputField} component={Input} name = {"password"}  placeholder={"Password"} type = {"password"}
+                           validate = {[requiredField]}/>
+                </div>
+                <div className={s.formSummaryError}>
+                    {error}
+                </div>
+                <div>
+                    <div className={s.checkbox}><Field component={Input} name = {"rememberMe"}  type ={"checkbox"}/></div>
+                    <div className={s.checkboxText}> remember me</div>
+                </div>
+                <div>
+                    <button className={s.loginButton}>Login</button>
+                </div>
             </div>
             <div className={s.text}>
                 Чтобы ознакомиться с функциональностью сайта

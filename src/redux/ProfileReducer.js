@@ -1,5 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 import {setTotalUsersCount, setUsers, toggleIsFetching} from "./UsersReducer";
+import {stopSubmit} from "redux-form";
 
 const DELETE_POST = "profile/DELETE-POST"
 const ADD_POST = "profile/ADD-POST"
@@ -49,6 +50,27 @@ export const savePhoto = (photo) => async (dispatch) => {
     if (data.resultCode === 0)
     {
         dispatch(setPhoto(data.data.photos))
+    }
+
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+
+    let data = await profileAPI.saveProfile(profile)
+    if (data.resultCode === 0)
+    {
+        dispatch(getProfile(getState().auth.id))
+    } else {
+        let error = data.messages[0]
+        let errorObj = {'_error': error}
+        let match = error.match(/Invalid url format \(Contacts->(.+)\)/)
+        if (match) {
+            let fieldName = match[1].toLowerCase()
+            errorObj = { 'contacts': {}}
+            errorObj.contacts[fieldName] = error
+        }
+        dispatch(stopSubmit('editProfile', errorObj))
+        throw error
     }
 
 }

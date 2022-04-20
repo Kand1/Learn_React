@@ -17,7 +17,6 @@ let Users = (props) => {
             <div className={s.paginationFlex}>
                 <div className={s.pagination}>
                     <Pagination
-                        size="small"
                         defaultCurrent={props.currentPage}
                         defaultPageSize={props.pageSize}
                         total={props.totalUsersCount}
